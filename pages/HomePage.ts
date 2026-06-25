@@ -44,7 +44,7 @@ export class HomePage {
         console.log("First Product:",await this.productName.first().innerText());   //first product
     }
 
-    // ✅ Main method (sab kuch ek hi jagah)
+    // ✅ Main method 
          async verifyProducts(category: string) {
 
         console.log(`\n===== ${category.toUpperCase()} =====`);   //========MOBILE=======,==========LAPTOP========,=====MONITOR===
