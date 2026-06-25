@@ -1,5 +1,6 @@
 //SIGIN //login //signup //resetpassword
 import { Locator, Page } from "playwright";
+import test, { expect } from "playwright/test";
  
 export class LoginPage
 {
@@ -46,10 +47,18 @@ constructor(pageRecivedFromLoginTest:Page)
     // ✅ IMPORTANT → wait for welcome message
     await this.welcomemessage.waitFor();
 
+     
+   //// assertion
+   await expect(this.page.locator('#nameofuser')).toContainText('Welcome prashant_123');
 
-    const Welcome = await this.welcomemessage.innerText();
 
-    console.log("✅ Product Name:", Welcome);
+
+
+    //const Welcome = await this.welcomemessage.innerText();
+
+
+
+    //console.log("✅ Product Name:", Welcome);
      
 }
  
