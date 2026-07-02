@@ -47,6 +47,9 @@ FRAMEWORK/
 - ✅ ProductPage
 - ✅ CartPage
 - ✅ PlaceOrderModal
+- ✅ signUp
+- ✅ contactpage
+- ✅ HomePage
 
 ---
 
