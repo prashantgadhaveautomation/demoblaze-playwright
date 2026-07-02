@@ -11,6 +11,11 @@ export class LoginPage
      readonly passwordFiled:Locator;
      readonly loginbutton:Locator;
      readonly welcomemessage:Locator
+
+     //close button
+     readonly closebutton:Locator
+     readonly closeicon:Locator
+     readonly loginmodal:Locator
  
    
 constructor(pageRecivedFromLoginTest:Page)  
@@ -22,6 +27,12 @@ constructor(pageRecivedFromLoginTest:Page)
       this.passwordFiled=pageRecivedFromLoginTest.locator('//input[@id="loginpassword"]');
       this.loginbutton=pageRecivedFromLoginTest.locator('//button[text()="Log in"]');
       this.welcomemessage=pageRecivedFromLoginTest.locator('//a[@id="nameofuser"]');
+
+      //close
+      this.closebutton=pageRecivedFromLoginTest.locator('//div[@id="logInModal"]//button[text()="Close"]');
+      this.closeicon=pageRecivedFromLoginTest.locator('#logInModal button.close');
+      this.loginmodal=pageRecivedFromLoginTest.locator('//div[@id="logInModal"]');
+
  
      
     }
@@ -48,23 +59,49 @@ constructor(pageRecivedFromLoginTest:Page)
     await this.welcomemessage.waitFor();
 
      
-   //// assertion
+   // assertion
    await expect(this.page.locator('#nameofuser')).toContainText('Welcome prashant_123');
 
+  //const Welcome = await this.welcomemessage.innerText();
 
-
-
-    //const Welcome = await this.welcomemessage.innerText();
-
-
-
-    //console.log("✅ Product Name:", Welcome);
+  //console.log("✅ Product Name:", Welcome);
      
 }
- 
+
+ // ✅ close button
+ async closeByButton(){
+
+     await this.loginlink.click();
+     
+     await expect (this.closebutton).toBeVisible();
+
+     await this.closebutton.click();
+
+     console.log("successful closeButton ")
+}
+
+//cross button
+async crossByButton(){
+
+     await this.loginlink.click();
+
+     await expect(this.closeicon).toBeVisible();
+
+     await this.closeicon.click();
+
+     console.log("successful crossByButton ")
+}
+
+// ✅ verify
+async verfiyModalclosed(){
+
+await expect(this.loginmodal).toBeHidden();
+
+}
+}
    
  
  
  
  
- }
+ 

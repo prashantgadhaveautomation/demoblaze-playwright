@@ -29,3 +29,22 @@ test ("login test case of demoblaze", async({page})=>  {
 
 
 });
+
+
+test ( "close button", async({page})=> {
+
+  const LoginPageobj = new LoginPage (page)
+
+    await LoginPageobj.closeByButton();
+    await LoginPageobj.verfiyModalclosed();
+
+});
+
+
+test ("Cross button",async({page})=>{
+
+ const LoginPageobj = new LoginPage (page)
+  await LoginPageobj.crossByButton();
+  await LoginPageobj.verfiyModalclosed();
+
+});
