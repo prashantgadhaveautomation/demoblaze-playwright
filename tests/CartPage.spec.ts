@@ -15,8 +15,8 @@ test ("Home test case of demoblaze", async({page})=>  {
     const loginpageobj = new LoginPage(page);
     await loginpageobj.doLogin("prashant_123","password@123");
 
-    //const ProductPageobj = new ProductPage(page);
-    //await ProductPageobj.ProductPage();
+    const ProductPageobj = new ProductPage(page);
+    await ProductPageobj.ProductPage();
 
 
      const cartPageobj = new cartPage(page);

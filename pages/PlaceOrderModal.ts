@@ -18,7 +18,7 @@ export class PlaceOrderModal {
     {
 
      this.page=CheckoutModal ;
-     this.Name=CheckoutModal .locator('//input[@id="name"]');
+     this.Name=CheckoutModal .locator('#name');
      this.Country=CheckoutModal .locator('//input[@id="country"]');
      this.City=CheckoutModal .locator('//input[@id="city"]');
      this.Creditcard=CheckoutModal .locator('//input[@id="card"]');
@@ -63,16 +63,16 @@ export class PlaceOrderModal {
         console.log("✅ Form filled");
 
         //successmsg display
+        await expect(this.successmsg).toBeVisible();
 
-        const text = await this.successmsg.innerText();
+        await expect(this.successmsg).toContainText(
+        'Thank you for your purchase!'
+    );
 
-        console.log("message:" ,text );
+        console.log("✅ Order placed successfully");
 
-        //clciked on ok button
 
-        await this.okbutton.click();
-
-}
+    }
     async captureScreeshot() {
 
              // wait for popup text

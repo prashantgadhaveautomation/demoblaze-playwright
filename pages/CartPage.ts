@@ -43,9 +43,10 @@ export class cartPage {
         
 
         if (count === 0) {
-            console.log("❌ Cart empty ");
-        } else {
-            console.log("✅ Cart product ");
+            throw new Error("❌ Cart is empty. Cannot place order.");                   
+        } 
+        
+        console.log("✅ Cart product ");
         
     
         //product name print
@@ -64,13 +65,10 @@ export class cartPage {
         await this.placeorderbutton.waitFor();
         await this.placeorderbutton.click();
 
+        await expect(this.page.locator('#orderModal')).toBeVisible();
+
         }
     
     }
 
-    
-
-
-
-}
  
